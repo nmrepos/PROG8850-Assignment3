@@ -1,1 +1,4 @@
+flask
+selenium
 mysql-connector-python
+pytest
