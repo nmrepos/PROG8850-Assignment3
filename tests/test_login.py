@@ -31,8 +31,10 @@ def test_login():
 
     try:
         driver.get(f'http://localhost:{PORT}/')
-        driver.find_element(By.NAME, 'username').send_keys('nidhun')
-        driver.find_element(By.NAME, 'password').send_keys('nidhun')
+        print("Entering the username : testuser")
+        driver.find_element(By.NAME, 'username').send_keys('testuser')
+        print("Entering the password : testpass")
+        driver.find_element(By.NAME, 'password').send_keys('testpass')
         driver.find_element(By.CSS_SELECTOR, 'input[type=submit]').click()
         time.sleep(2)
     finally:
@@ -48,11 +50,15 @@ def test_login():
         database=DB_NAME
     )
     cur = conn.cursor()
-    cur.execute('SELECT username, password FROM users WHERE username=%s', ('nidhun',))
-    result = cur.fetchone()
+
+    cur.execute('SELECT username, password FROM users WHERE username=%s', ('testuser',))
+    results = cur.fetchall()
+    assert any(row == ('testuser', 'testpass') for row in results)
+    cur.execute('DELETE FROM users WHERE username=%s', ('testuser',))
+    conn.commit()
+
     cur.close()
     conn.close()
-    assert result == ('nidhun', 'nidhun'), f"Expected ('nidhun', 'nidhun'), got {result}"
 
 if __name__ == '__main__':
     test_login()
