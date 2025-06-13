@@ -59,7 +59,7 @@ terminating the application.
 
 ## Screenshots
 
-![ss1](screenshots/Screenshot(875).png)
-![ss2](screenshots/Screenshot(876).png)
-![ss3](screenshots/Screenshot(877).png)
-![ss4](screenshots/Screenshot(878).png)
+![ss1](screenshots/Screenshot-(875).png)
+![ss2](screenshots/Screenshot-(876).png)
+![ss3](screenshots/Screenshot-(877).png)
+![ss4](screenshots/Screenshot-(878).png)
